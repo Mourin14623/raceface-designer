@@ -19,14 +19,64 @@ button,input,select{font:inherit}button{cursor:pointer;color:inherit;background:
 @media(max-width:920px){.workspace{grid-template-columns:1fr}.preview{position:static}.previewbody{padding:17px}.watchframe{width:min(78vw,340px)}.editor{order:2}.preview{order:1}.shell{padding-top:16px}}
 @media(max-width:480px){.pagehead h1{font-size:21px}.build{display:none}.topbar{height:58px}.wordmark{font-size:15px}.online{font-size:9px}.panel{padding:4px 12px 15px}.cardhead{padding-left:13px;padding-right:13px}.tabs{gap:0}.tab{padding:10px 9px;font-size:10px}.gesture-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
-</head>
+<style>
+/* Reference-inspired dashboard skin */
+body{background:#060a10;background-image:radial-gradient(ellipse at 8% 8%,#4a111b66,transparent 35%),radial-gradient(ellipse at 95% 15%,#102a4566,transparent 40%);font-family:Inter,system-ui,sans-serif}
+.shell{max-width:1450px;padding:22px clamp(12px,2.5vw,32px) 40px}
+.pagehead h1{font-size:clamp(23px,3vw,34px);font-weight:900;letter-spacing:-.05em}
+.workspace{grid-template-columns:minmax(350px,.92fr) minmax(420px,1.2fr);gap:14px}
+.preview{position:relative;top:auto;border-radius:22px;overflow:hidden;background:linear-gradient(155deg,#101722,#02050a);border-color:#293442}
+.preview .cardhead{background:#090e16;border-color:#202b38}
+.previewbody{padding:18px}
+.watchframe{width:min(100%,440px);border-width:9px;border-color:#303a46;box-shadow:0 0 0 1px #030508,0 25px 55px #000b}
+.previewcaption{max-width:340px}
+.dashboardtiles{display:grid;grid-template-columns:1fr 1fr;gap:13px;align-content:start}
+.tile{border:1px solid #25313e;background:radial-gradient(circle at 30% 15%,#172330,#05080d 70%);border-radius:20px;min-height:205px;padding:13px;box-shadow:0 14px 35px #0005;position:relative;overflow:hidden}
+.tile h3{font-size:12px;margin:0 0 12px;text-align:center;font-weight:750;letter-spacing:.02em}
+.tile .minirow{display:flex;justify-content:center;gap:8px}
+.miniapp{background:#111925;border:1px solid #222e3c;border-radius:13px;width:61px;height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:21px}
+.miniapp small{font-size:9px;color:#d5dce4}
+.controlpill{border-radius:999px;background:#111923;border:1px solid #26313c;padding:9px 12px;font-size:18px;display:inline-flex;align-items:center;justify-content:center;min-width:42px}
+.redpill{border-color:var(--accent);box-shadow:0 0 10px #e7443e18}
+.widgetrow{display:flex;justify-content:center;gap:8px;margin-bottom:9px}
+.widget{border-radius:14px;background:#101923;border:1px solid #1e2b38;padding:9px 11px;text-align:center;font-size:11px}
+.healthline{display:flex;align-items:center;gap:7px;justify-content:center;color:var(--accent);font-size:20px;margin:7px 0}
+.statcircles{display:flex;justify-content:center;gap:7px}
+.statcircle{border:1px solid #334150;border-radius:50%;width:56px;height:56px;display:grid;place-content:center;text-align:center;font-size:11px}
+.workoutlist{display:grid;gap:6px}
+.workoutlist div{border:1px solid #24313d;background:#0c141d;border-radius:999px;padding:8px 10px;font-size:10px;display:flex;justify-content:space-between}
+.workoutlist div:first-child{border-color:var(--accent)}
+.musiccard{text-align:center}.musiccover{width:62px;height:62px;margin:4px auto 8px;border-radius:10px;background:linear-gradient(140deg,#12346a,#ed2638);display:grid;place-items:center;font-size:24px;font-weight:1000;font-style:italic}.musicbar{height:4px;border-radius:10px;background:#26313f;margin:10px 8px}.musicbar span{display:block;width:40%;height:100%;background:var(--accent);border-radius:10px}
+.featurebar{grid-column:1/-1;display:grid;grid-template-columns:1.8fr .7fr;gap:13px;margin-top:14px}
+.featurebox{border:1px solid #293442;border-radius:18px;background:#0b1119;padding:16px}
+.featurebox h3{margin:0 0 12px;font-size:14px}
+.features{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center}
+.feature{font-size:10px;color:#c5d0db}.feature .ico{font-size:20px;margin-bottom:6px}
+.palette{display:flex;gap:9px;justify-content:center;align-items:center}
+.palette button{width:40px;height:40px;border-radius:12px;padding:0;border:2px solid #3b4655}
+.editor{grid-column:1/-1;margin-top:5px;border-radius:18px}
+.editor .cardhead{padding:14px 18px;background:#0b1119}
+.editor .panel{padding:8px 18px 20px}
+.editor .section{padding:17px 0}
+.preset{border-radius:12px}
+@media(max-width:900px){.workspace{grid-template-columns:1fr}.dashboardtiles{grid-template-columns:1fr 1fr}.preview{order:0}.editor{order:3}.featurebar{grid-template-columns:1fr}}
+@media(max-width:550px){.dashboardtiles{gap:8px}.tile{min-height:180px;padding:10px;border-radius:16px}.miniapp{width:49px;height:52px}.tile h3{font-size:11px}.featurebar{grid-template-columns:1fr}.features{grid-template-columns:repeat(3,1fr);row-gap:12px}.previewtools{grid-template-columns:1fr 1fr}.editor .cardhead{flex-direction:column;align-items:start}.tabs{width:100%}}
+</style></head>
 <body>
 <header class="topbar"><div class="brand"><div class="mark">RF</div><div><div class="wordmark">RACE<span>FACE</span></div><div class="tagline">WATCH ARTWORK CONTROL</div></div></div><div class="topright"><span class="online">STUDIO READY</span><button class="subtle" id="help">Help</button></div></header>
 <div class="shell">
 <div class="pagehead"><div><div class="eyebrow">CONFIGURATION / WATCH FACE</div><h1>Racing cockpit editor</h1><p>Configure each element, preview instantly, and export your design.</p></div><div class="build">PROFILE 01 &nbsp;·&nbsp; 466 × 466 PX</div></div>
 <main class="workspace">
 <section class="card preview"><div class="cardhead"><strong>PREVIEW MONITOR</strong><span class="tiny">LIVE RENDER</span></div><div class="previewbody"><div class="previewlabel"><span class="live">● LIVE CANVAS</span><span class="tiny" id="previewMode">RACE COCKPIT</span></div><div class="watchframe" id="watch"></div><div class="previewcaption">Your artwork updates as you change settings. Sample stats are decorative, not connected to the watch.</div><div class="previewtools"><button id="save">☆ Save profile</button><button id="random">⚡ Randomize</button><button id="install" style="display:none">Install app</button><button id="png" class="primary">Export PNG</button></div><button id="svgExport" class="wide">Export SVG artwork</button><div class="status" id="status" aria-live="polite"></div></div></section>
-<section class="card editor"><div class="cardhead"><strong>CONFIGURATION</strong><nav class="tabs"><button class="tab active" data-tab="overview">Overview</button><button class="tab" data-tab="layout">Layout</button><button class="tab" data-tab="elements">Elements</button><button class="tab" data-tab="profiles">Profiles</button></nav></div>
+<section class="dashboardtiles" aria-label="Watch UI concept preview">
+<div class="tile"><h3>Apps</h3><div class="minirow"><div class="miniapp">🏃<small>Workout</small></div><div class="miniapp">❤️<small>Health</small></div><div class="miniapp">〰️<small>Stats</small></div></div><div class="minirow" style="margin-top:7px"><div class="miniapp">♫<small>Music</small></div><div class="miniapp">☎<small>Call</small></div><div class="miniapp">⚙<small>Settings</small></div></div></div>
+<div class="tile"><h3>Control Center</h3><div style="text-align:center;margin:7px 0 13px;color:#58c9ff">ᛒ &nbsp; ▰ 92%</div><div class="minirow"><span class="controlpill">☾</span><span class="controlpill">♜</span><span class="controlpill redpill">☼</span></div><div class="minirow" style="margin-top:8px"><span class="controlpill">✈</span><span class="controlpill">◖))</span></div><div class="musicbar"><span style="width:75%"></span></div></div>
+<div class="tile"><h3>Widgets / Tiles</h3><div class="widgetrow"><div class="widget">☀️ 27°C<br><small>Kolkata</small></div><div class="widget"><b style="font-size:20px">25</b><br>Tue</div></div><div class="widget" style="margin:0 5px">🟢 Now Playing · F1 Theme<br><small>⏮　Ⅱ　⏭</small></div></div>
+<div class="tile"><h3>♥ Health</h3><div class="healthline">〰〰〰　<span style="color:white">78 BPM</span></div><div class="statcircles"><div class="statcircle">🏃<br>6,421</div><div class="statcircle" style="border-color:var(--accent)">🔥<br>312</div><div class="statcircle">⌖<br>4.8</div></div></div>
+<div class="tile"><h3>🏃 Workout</h3><div class="workoutlist"><div>🏃 Outdoor Run <span>›</span></div><div>🚴 Cycling <span>›</span></div><div>🏋 Workout <span>›</span></div><div>▦ More <span>›</span></div></div></div>
+<div class="tile musiccard"><h3>Music</h3><div class="musiccover">F1</div><b>F1 Theme</b><br><small>Brian Tyler · concept</small><div class="musicbar"><span></span></div><div style="font-size:18px">⏮　🔴Ⅱ　⏭</div></div>
+<div class="featurebar"><div class="featurebox"><h3>Features of This UI</h3><div class="features"><div class="feature"><div class="ico">🏁</div>F1 / Red Bull<br>Theme</div><div class="feature"><div class="ico">▱</div>Custom<br>Widgets</div><div class="feature"><div class="ico">◉</div>Dark AMOLED<br>Look</div><div class="feature"><div class="ico">⚡</div>Clean &<br>Minimal</div><div class="feature"><div class="ico">▦</div>Fully<br>Customizable</div></div></div><div class="featurebox"><h3>Color Palette</h3><div class="palette"><button style="background:#10192b" onclick="preset('redbull')"></button><button style="background:#e20d24" onclick="preset('redbull')"></button><button style="background:#f4bd20" onclick="preset('sunset')"></button><button style="background:#d9dce5" onclick="preset('silver')"></button></div></div></div>
+</section><section class="card editor"><div class="cardhead"><strong>CONFIGURATION</strong><nav class="tabs"><button class="tab active" data-tab="overview">Overview</button><button class="tab" data-tab="layout">Layout</button><button class="tab" data-tab="elements">Elements</button><button class="tab" data-tab="profiles">Profiles</button></nav></div>
 <div class="panel active" id="overview">
 <div class="section"><div class="sectiontitle">DESIGN PRESETS <span class="hint">Select a base profile</span></div><div class="presets">
 <button class="preset selected" data-preset="redbull"><div class="swatch" style="background:linear-gradient(110deg,#123a79 0 45%,#e7443e 46% 72%,#e8b84d 73%)"></div><span>RACE TEAM</span></button>
