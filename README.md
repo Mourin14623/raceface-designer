@@ -1,55 +1,41 @@
-# RACEFACE Designer 🏁
+# RACEFACE Studio 🏁 v2.0
 
-A mobile-first progressive web app for building racing-inspired watch-face artwork, with a 466 × 466 export canvas intended for the CMF Watch Pro 2 custom-background workflow.
+A mobile-first racing-inspired watch artwork studio. Design, preview, save, and export a circular 466 × 466 watch-face graphic.
 
-## What it does
+## 2.0 upgrades
+- Redesigned Studio cockpit UI for phone and desktop
+- 8 palettes: Race, Mono, Ice, Neon, Apex/Sunset, Green, Silver, Pink
+- Live clock/date with 12/24-hour formats
+- 3 face layouts: Race cockpit, Minimal, Grid/Telemetry
+- Customize colors, brand/team text, race number
+- Toggle carbon, circuit graphic, race car, checkered strip, outer ring, minute ticks, stats and weather card
+- Local Garage: save/load/delete designs (up to 30)
+- Randomize colors and race number
+- Export 466×466 PNG and SVG
+- PWA installation and offline caching
 
-- Live circular watch preview
-- Racing Red/Yellow, Monochrome, Ice Blue and Neon presets
-- Editable accent and secondary colors, brand text and race number
-- Toggle circuit graphic, race car, checkered strip and carbon-fibre texture
-- Export a 466 × 466 PNG
-- Installable PWA with offline caching
-- Works in desktop and mobile browsers
+## Use
+Choose Style, Layout and Details, then save in Garage or export PNG/SVG. Garage saves stay on the current device/browser.
 
-## Compatibility note
-
-RACEFACE is a **watch-face artwork designer**, not firmware and not a companion app. It cannot replace the CMF Watch Pro 2 operating-system interface, install arbitrary watch apps, or transfer a face over Bluetooth. Exported images are intended to be tried through the official CMF companion app's supported custom-face/background workflow. Exact import support and which fields can be overlaid are determined by the watch and companion-app versions. The visual preview contains sample values; it does not read live watch sensors.
-
-## Run locally
-
-Open `index.html` in a browser. For PWA installation and service-worker/offline features, use HTTPS or localhost.
-
-## Deploy on GitHub Pages
-
-1. Create a public repository named `raceface-designer`.
-2. Upload the contents of this folder to the repository root (not the enclosing folder).
-3. In **Settings → Pages**, choose **Deploy from a branch**.
-4. Select branch `main` and folder `/ (root)`, then save.
-5. Open the Pages URL on Android Chrome and choose **Install app** or **Add to Home screen**.
+## GitHub Pages
+Repository Settings → Pages → Deploy from a branch → main → /(root) → Save.
 
 ## Termux
-
-After creating the repository, replace `YOUR-USERNAME` with your GitHub username:
-
 ```bash
 pkg update -y
 pkg install git python -y
-git clone https://github.com/YOUR-USERNAME/raceface-designer.git
+git clone https://github.com/Mourin14623/raceface-designer.git
 cd raceface-designer
 python -m http.server 8080
 ```
+Open http://127.0.0.1:8080.
 
-Open `http://127.0.0.1:8080` on the same phone. For PWA installation, use the HTTPS GitHub Pages URL.
+## Compatibility
+Artwork designer only—not watch firmware or a companion app. It cannot modify the watch OS, Bluetooth-transfer faces, or read live sensors. Weather, steps and pulse are decorative sample values. Applying artwork depends on supported customization features in the watch and companion app.
 
-## Project files
-
-- `index.html` — complete designer UI and PNG export logic
-- `manifest.json` — PWA manifest
-- `sw.js` — service worker and offline cache
-- `icon.svg` — app icon
-- `LICENSE` — MIT license
-
-## License
-
-MIT. See `LICENSE`.
+## Files
+- index.html — app
+- manifest.json — PWA config
+- sw.js — offline cache
+- icon.svg — app icon
+- LICENSE — MIT
